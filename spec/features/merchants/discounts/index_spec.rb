@@ -63,14 +63,20 @@ RSpec.describe "Merchant Bulk Discounts Index" do
 
   it 'shows a section with upcoming holidays and 3 upcoming US holidays are listed' do
     expect(page).to have_content("Upcoming Holidays:")
-    # within("#holiday-#{@holiday_1.name}") do
-    #   expect(page).to have_content(@holiday_1.date)
-    #   expect(page).to have_content(@holiday_1.name)
-    # end
+    within("#holiday-0") do
+      expect(page).to have_content(@holiday_1.date)
+      expect(page).to have_content(@holiday_1.name)
+    end
+
+    within("#holiday-1") do
       expect(page).to have_content(@holiday_2.date)
       expect(page).to have_content(@holiday_2.name)
+    end
+
+    within("#holiday-2") do
       expect(page).to have_content(@holiday_3.date)
       expect(page).to have_content(@holiday_3.name)
+    end
   end
 
   it 'shows a link to create a new bulk discount that I can click on' do
@@ -91,7 +97,7 @@ RSpec.describe "Merchant Bulk Discounts Index" do
     end
   end
 
-  it 'can delete a bulk discount' do 
+  it 'can delete a bulk discount' do
     within("#discounted-item-#{@discount_2.id}") do
       click_link "Delete discount #{@discount_2.id}"
     end
@@ -99,5 +105,15 @@ RSpec.describe "Merchant Bulk Discounts Index" do
     expect(current_path).to eq("/merchant/#{@merchant.id}/bulk_discounts")
 
     expect(page).to_not have_content(@discount_2.id)
+  end
+
+  it 'shows a link to create a new holiday discount that I can click on' do
+    within("#holiday-0") do
+      expect(page).to have_content(@holiday_1.date)
+      expect(page).to have_content(@holiday_1.name)
+      click_link("Create #{@holiday_1.name} Discount")
+    end
+
+    expect(current_path).to eq("/merchant/#{@merchant.id}/bulk_discounts/new")
   end
 end

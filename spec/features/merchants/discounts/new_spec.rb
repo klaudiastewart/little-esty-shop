@@ -74,4 +74,15 @@ RSpec.describe "Merchant Bulk Discounts New Page" do
     expect(page).to have_content("Percentage discount: 50.0%")
     expect(page).to have_content("Quantity threshold: 7")
   end
+
+  it 'has a form that is already filled out for a holiday discount' do
+    visit "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=0"
+
+    expect(page).to have_content("Discount name: #{@holiday_1.name}")
+    click_button("Submit")
+
+    expect(current_path).to eq("/merchant/#{@merchant.id}/bulk_discounts")
+    expect(page).to have_content("20.0%")
+    expect(page).to have_content("3")
+  end
 end
