@@ -13,11 +13,12 @@ class BulkDiscountsController < ApplicationController
   def new
     @merchant = Merchant.find(params[:merchant_id])
     @bulk_discount = BulkDiscount.new
+    @holiday = NationalHolidayService.get_data[(params[:holiday].to_i)]
   end
 
   def create
+    # binding.pry
     @merchant = Merchant.find(params[:merchant_id])
-    # bulk_discount = @merchant.bulk_discounts.create(bulk_discount_params)
     discount = @merchant.bulk_discounts.new(bulk_discount_params)
 
     if discount.save
