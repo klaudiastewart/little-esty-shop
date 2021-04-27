@@ -4,7 +4,7 @@
   <p>Upcoming Holidays:</p>
   <ol>
     <% @holidays.each_with_index do |holiday, index| %>
-      <li id="holiday-<%= holiday.name %>">
+      <li id="holiday-<%= index %>">
         <%= holiday.name %>, on <%= holiday.date %>
         <%= link_to "Create #{holiday.name} Discount", "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=#{index}" %>
       </li>
