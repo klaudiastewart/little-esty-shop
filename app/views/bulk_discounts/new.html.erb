@@ -1,10 +1,23 @@
 <h2>New Bulk Discount for <%= @merchant.name %></h2>
-<%= form_with model: [@merchant, @bulk_discount], class: :model, local: true do |f| %>
-  <%= f.label :percent_discount %> (please enter a decimal)
-  <%= f.number_field :percent_discount, step: 0.01 %><br>
+<% if params.include?(:holiday) %>
+  <p>Discount name: <b><%= @holiday.name %> discount</b></p>
+  <%= form_with model: [@merchant, @bulk_discount], class: :model, local: true do |f| %>
+    <%= f.label :percent_discount %> (please enter a decimal)
+    <%= f.number_field :percent_discount, step: 0.01, :value => 0.2 %><br>
 
-  <%= f.label :quantity_threshold %>
-  <%= f.number_field :quantity_threshold %><br>
+    <%= f.label :quantity_threshold %>
+    <%= f.number_field :quantity_threshold, :value => 2 %><br>
 
-  <%= f.submit "Submit" %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% else %>
+  <%= form_with model: [@merchant, @bulk_discount], class: :model, local: true do |f| %>
+    <%= f.label :percent_discount %> (please enter a decimal)
+    <%= f.number_field :percent_discount, step: 0.01 %><br>
+
+    <%= f.label :quantity_threshold %>
+    <%= f.number_field :quantity_threshold %><br>
+
+    <%= f.submit "Submit" %>
+  <% end %>
 <% end %>
