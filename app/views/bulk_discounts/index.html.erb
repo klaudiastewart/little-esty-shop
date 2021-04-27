@@ -5,6 +5,7 @@
     <% @holidays.each do |holiday| %>
       <li id="holiday-<%= holiday.name %>">
         <%= holiday.name %>, on <%= holiday.date %>
+        <%= link_to "Create Holiday Discount", "/merchant/#{@merchant.id}/bulk_discounts/new", method: :get, params: { holiday_name: holiday.name } %>
       </li>
     <% end %>
   </ol>
