@@ -18,7 +18,7 @@ class Invoice < ApplicationRecord
     .where('bulk_discounts.quantity_threshold <= invoice_items.quantity')
     .select("bulk_discounts.*, invoice_items.*, (invoice_items.quantity * invoice_items.unit_price * bulk_discounts.percent_discount) as discounted_revenue")
     .order('bulk_discounts.percent_discount DESC')
-    # .distinct('invoice_items.id')
+    # .distinct('invoice_items.id'), this doesn't work?!...so I call unique below 
   end
 
   def discounted_revenue

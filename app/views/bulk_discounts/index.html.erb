@@ -1,15 +1,15 @@
-<%= link_to "Create New Discount", "/merchant/#{@merchant.id}/bulk_discounts/new", method: :get %>
-<section>
+<h2><%= @merchant.name %>'s Discounts</h2>
+<section class="bulk-discounts">
+  <%= link_to "Create New Discount", "/merchant/#{@merchant.id}/bulk_discounts/new", method: :get %>
   <p>Upcoming Holidays:</p>
   <ol>
     <% @holidays.each_with_index do |holiday, index| %>
       <li id="holiday-<%= holiday.name %>">
         <%= holiday.name %>, on <%= holiday.date %>
-        <%= link_to "Create Holiday Discount", "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=#{index}" %>
+        <%= link_to "Create #{holiday.name} Discount", "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=#{index}" %>
       </li>
     <% end %>
   </ol>
-</section>
 
 <ul>
   <% @discounts.each do |discount| %>
@@ -19,3 +19,4 @@
     </li>
   <% end %>
 </ul>
+</section>
