@@ -2,10 +2,10 @@
 <section>
   <p>Upcoming Holidays:</p>
   <ol>
-    <% @holidays.each do |holiday| %>
+    <% @holidays.each_with_index do |holiday, index| %>
       <li id="holiday-<%= holiday.name %>">
         <%= holiday.name %>, on <%= holiday.date %>
-        <%= link_to "Create Holiday Discount", "/merchant/#{@merchant.id}/bulk_discounts/new", method: :get, params: { holiday_name: holiday.name } %>
+        <%= link_to "Create Holiday Discount", "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=#{index}" %>
       </li>
     <% end %>
   </ol>
