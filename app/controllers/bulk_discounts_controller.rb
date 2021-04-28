@@ -17,7 +17,6 @@ class BulkDiscountsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @merchant = Merchant.find(params[:merchant_id])
     discount = @merchant.bulk_discounts.new(bulk_discount_params)
 
