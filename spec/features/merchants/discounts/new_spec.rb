@@ -85,4 +85,15 @@ RSpec.describe "Merchant Bulk Discounts New Page" do
     expect(page).to have_content("20.0%")
     expect(page).to have_content("3")
   end
+
+  it "does not submit if the form isn't filled all the way out" do
+    visit "/merchant/#{@merchant.id}/bulk_discounts/new?holiday=0"
+
+    fill_in "Percent discount", with: ""
+
+    click_button("Submit")
+
+    expect(current_path).to eq("/merchant/#{@merchant.id}/bulk_discounts/new")
+    expect(page).to have_content("Please fill in all fields. Percent discount can't be blank.")
+  end
 end
