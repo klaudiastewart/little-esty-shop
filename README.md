@@ -5,7 +5,7 @@
 "Little Esty Shop" is a group project that requires students to build a fictitious e-commerce platform where merchants and admins can manage inventory and fulfill customer invoices.
 
 ## Database Design Schema
-![database schema](https://user-images.githubusercontent.com/57960885/115322048-cb931d00-a14a-11eb-9699-eeabcfc0f76a.png)
+![database schema](https://i.ibb.co/VTSwJZ7/Screen-Shot-2021-04-27-at-9-30-32-PM.png)
 
 ---
 
