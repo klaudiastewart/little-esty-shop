@@ -2,10 +2,13 @@
 
 ## Background and Description
 
-"Little Esty Shop" is a group project that requires students to build a fictitious e-commerce platform where merchants and admins can manage inventory and fulfill customer invoices.
+Little Esty Shop is an e-commerce platform application where merchants and admins can manage inventory and fulfill customer invoices, as well as apply discounts to items. 
 
 ## Database Design Schema
 ![database schema](https://i.ibb.co/VTSwJZ7/Screen-Shot-2021-04-27-at-9-30-32-PM.png)
+
+## Routes 
+![routes](https://i.ibb.co/87Q0g2y/routes.png)
 
 ---
 
