@@ -1,8 +1,8 @@
 # Little Esty Shop
 
-## Background and Description
+## Description
 
-Little Esty Shop is an e-commerce platform application where merchants and admins can manage inventory and fulfill customer invoices, as well as apply discounts to items.
+Little Esty Shop is an e-commerce platform application where merchants and admins can manage inventory and fulfill customer invoices, as well as apply discounts to items. Visit our ![Heroku](https://lile-shoppe.herokuapp.com/merchant/2/items)!
 
 ![lil-e-shoppe](lileshoppe.gif)
 
